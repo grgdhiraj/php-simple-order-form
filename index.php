@@ -35,27 +35,30 @@ $products = [
 
 $totalValue = 0;
 
-$emailError = ""; $strtnumError = ""; $zipError = ""; $cityError = ""; $strtError ="";
+$emailError = $strtnumError = $zipError =  $cityError =  $strtError = null;
 
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-    $emailError = "Email address " . $_POST['email'] . " is considered invalid.\n";
+   // $emailError = "Email address " . $_POST['email'] . " is considered invalid.\n";
+        $emailError ="<div class= 'alert alert-danger'> Please enter a valid email address.</div>";
     }
 
     if (!is_numeric($_POST["streetnumber"])) {
-    $strtnumError = "This  " . $_POST["streetnumber"] . " is an invalid street number!\n";
+    // $strtnumError = "This  " . $_POST["streetnumber"] . " is an invalid street number!\n"; [This works!]
+        $strtnumError ="<div class='alert alert-danger'> This is not a number!</div>"; // Using bootstrap
     }
 
     if (!is_numeric($_POST["zipcode"])) {
-    $zipError = $_POST["zipcode"] . " Invalid ZIP code!\n";
+   // $zipError = $_POST["zipcode"] . " Invalid ZIP code!\n";
+        $zipError = "<div class='alert alert-danger'> Invalid ZIP code </div>";
     }
 
     if (!filter_var($_POST["city"])) {
         $cityError = "This is an invalid " . $_POST["city"] . " city!\n";
+        $cityError = "<div class='alert alert-danger'> Input the city name</div>";
     }
 
-    if (!filter_var($_POST["street"])) {
-        $strtError = "This is an invalid " . $_POST["street"] . " street name!\n";
+    if (empty($_POST["street"])) {
+        $strtError = "<div class='alert alert-danger'>Input the street name</div>". $_POST["street"];
     }
-
 
 require './form-view.php';

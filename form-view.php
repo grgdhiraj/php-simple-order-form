@@ -40,24 +40,23 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="street">Street:</label>
-                    <input type="text" name="street" id="street" class="form-control">
-
+                    <input type="text" name="street" id="street" class="form-control" value="<?php echo $_POST["street"];?>">
                 <?php if (!empty($strtError)) {echo $strtError;}
                 ?>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="streetnumber">Street number:</label>
-                    <input type="text" id="streetnumber" name="streetnumber" class="form-control">
+                    <input type="text" id="streetnumber" name="streetnumber" class="form-control" value="<?php echo $_POST["streetnumber"];?>">
                 <?php if (!empty($strtnumError)) {echo $strtnumError;}
                 ?>
                 </div>
-
             </div>
+
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="city">City:</label>
-                    <input type="text" id="city" name="city" class="form-control">
+                    <input type="text" id="city" name="city" class="form-control" value="<?php echo $_POST["city"];?>">
 
                 <?php if (!empty($cityError)) {echo $cityError;}
                 ?>
@@ -65,7 +64,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="zipcode">Zipcode</label>
-                    <input type="text" id="zipcode" name="zipcode" class="form-control">
+                    <input type="text" id="zipcode" name="zipcode" class="form-control" value="<?php echo $_POST["zipcode"];?>">
 
                     <?php if (!empty($zipError)) {echo $zipError;}
                     ?>
